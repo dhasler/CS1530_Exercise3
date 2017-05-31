@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "bettersupergroupers.LazyTriangle"
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+  testCompile 'junit:junit:4.12'
+}
+
+run {
+    try {
+        systemProperties System.getProperties()
+	    args System.getProperty("args").split()
+    } catch (Exception e) {
+        // Do nothing
+    }	
+}
+
+task sequencehelp << {
+    println "Integer Sequence Project"
+    println "------------------------"
+    println "This program will calculate the"
+    println "Triangle Number sequence or the Lazy Caterer sequence"
+    println "Triangle Number sequence by adding each between n and 0 together"
+    println "Lazy Caterer sequence will calculate the number of"
+    println "possible cuts from a pie with n cuts"
+    println "------------------------"
+    println "To work the program enter in \"lazy\" or \"triangle\""
+    println "followed by a positive integer to calculate the different values"
+}
